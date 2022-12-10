@@ -372,7 +372,7 @@ module Discordrb
       allowed_mentions = { parse: [] } if allowed_mentions == false
       if message_reference.respond_to?(:id)
         message_reference = { message_id: message_reference.id }
-      else
+      elsif
         message_reference = { message_id: message_reference }
       end
       response = API::Channel.create_message(token, channel, content, tts, embed&.to_hash, nil, attachments, allowed_mentions&.to_hash, message_reference)
